@@ -532,7 +532,7 @@
     </div>
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">43+</div>
+        <div class="hero-stat-num">45+</div>
         <div class="hero-stat-label">Portfolio Companies</div>
       </div>
       <div>
@@ -558,7 +558,7 @@
       <div class="about-text">
         <div class="section-eyebrow">Who We Are</div>
         <h2 class="section-title">Operators who back operators</h2>
-        <p>Nivesha Ventures is a seed-stage VC backed by three industry veterans with over 30 years of combined experience building, scaling, and leading technology ventures across engineering, IT, and emerging technologies.</p>
+        <p>Nivesha Ventures is a seed-stage VC backed by three industry veterans — each with over 30 years of experience building, scaling, and leading technology ventures across engineering, IT, and emerging technologies.</p>
         <p>We don't just write checks — we partner early, move fast, and bring hands-on support to help startups scale. Our network spans enterprise tech, deep tech, and the full arc from concept to market disruption.</p>
       </div>
       <div class="about-pillars">
@@ -653,7 +653,7 @@
   <div class="section-inner">
     <div class="section-header fade-in">
       <div class="section-eyebrow">Portfolio Companies</div>
-      <h2 class="section-title" style="color:#fff">43+ companies and counting</h2>
+      <h2 class="section-title" style="color:#fff">45+ companies and counting</h2>
       <p class="section-sub">Hover a card to learn more about each company.</p>
     </div>
 
@@ -808,6 +808,8 @@
 <script>
 // ── Portfolio data ──────────────────────────────────────────
 const COMPANIES = [
+  { name: "Constellation Space", logo: "https://constellation.space/og-image.png", desc: "AI-native operating system for space networks — minutes-ahead degradation forecasts, autonomous reroutes, and one API across your fleet.", tags: ["New Space", "AI Infrastructure"], ceo: "", linkedin: "", website: "https://constellation.space/", filter: ["Space", "AI"] },
+  { name: "Acceler8", logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/dFXexEeHWegoweCV0Iq3Lva5maF2/social-images/social-1773028842035-acceler8_logo_white_bg.webp", desc: "AI workforce intelligence platform that helps enterprises make faster, better talent and succession decisions.", tags: ["HRTech", "Enterprise AI"], ceo: "", linkedin: "", website: "https://www.useacceler8.com/", filter: ["AI"] },
   { name: "Swirepay", logo: "https://static.wixstatic.com/media/23b958_45b90e3280f946bdb98a95c5366bf866~mv2.jpg", desc: "AI-powered payments orchestration & reconciliation platform for businesses.", tags: ["FinTech", "Financial Services"], ceo: "Aditya Murli", linkedin: "https://www.linkedin.com/in/adithya-murali/", website: "https://www.swirepay.com/", filter: ["FinTech"] },
   { name: "Phonely", logo: "https://static.wixstatic.com/media/23b958_5aab4273b49c46e89d90e2c5e236e27f~mv2.jpg", desc: "AI-powered customer support and voice automation.", tags: ["Voice AI", "Conversational AI"], ceo: "Will Bodewes", linkedin: "https://www.linkedin.com/in/william-bodewes/", website: "https://www.phonely.ai/", filter: ["AI"] },
   { name: "Zime.ai", logo: "https://static.wixstatic.com/media/23b958_76618c01e8704db7900138ddba58e7bc~mv2.jpg", desc: "Behavioral Science and AI-driven sales coaching and sales enablement.", tags: ["AI", "Sales Enablement"], ceo: "Sanchit Garg", linkedin: "https://www.linkedin.com/in/sanchitg/", website: "https://zime.ai/", filter: ["AI"] },
@@ -841,12 +843,12 @@ const COMPANIES = [
   { name: "Synexis", logo: "https://static.wixstatic.com/media/23b958_3a7b04376fd9467297799fbe2606659a~mv2.jpg", desc: "AI-native decision platform that shortens private market deal cycles.", tags: ["VC Deal Flow", "VC-startup tech"], ceo: "Pavel Vinitsky, PhD", linkedin: "https://www.linkedin.com/in/pavelvinitsky/", website: "https://synexis.io/", filter: ["AI"] },
   { name: "Lightbeam", logo: "https://static.wixstatic.com/media/23b958_3b8b3e9938404d219b4607650cd58629~mv2.jpg", desc: "A data security & privacy platform using AI to discover & protect sensitive data.", tags: ["Cybersecurity", "AI Governance"], ceo: "Himanshu Shukla", linkedin: "https://www.linkedin.com/in/himanshushukla-us/", website: "https://www.lightbeam.ai/", filter: ["Security", "AI"] },
   { name: "VoiceBox", logo: "https://static.wixstatic.com/media/23b958_ea104d30ce674712b87813e811217ee2~mv2.png", desc: "Capture voice feedback at any point in the customer journey and get deep insights instantly.", tags: ["Voice Analytics", "Feedback Intelligence"], ceo: "Karan M Gupta", linkedin: "https://www.linkedin.com/in/karanmg/", website: "https://vbx.ai/", filter: ["AI"] },
-  { name: "Rigor.ai", logo: "https://static.wixstatic.com/media/23b958_7c2f993a60dc4364951d582de9b4d157~mv2.jpg", desc: "A cybersecurity company pioneering preemptive, continuous, and verifiable cyber-defense management.", tags: ["Cybersecurity"], ceo: "Sundar Iyer", linkedin: "https://www.linkedin.com/in/sundariyer/", website: "https://rigor.ai/", filter: ["Security"] },
-  { name: "MultiSet", logo: "https://static.wixstatic.com/media/23b958_756d5755ac1345edb83699fa45703a95~mv2.jpg", desc: "Robust Visual Positioning Systems for precise, reliable, multi-level environments.", tags: ["VPS", "AR/VR"], ceo: "Nikhil Sawlani", linkedin: "https://www.linkedin.com/in/niksawlani/", website: "https://www.multiset.ai/", filter: ["AI"] },
+  { name: "Rigor.ai", logo: "https://rigor.ai/images/rigor_logo.svg", desc: "A cybersecurity company pioneering preemptive, continuous, and verifiable cyber-defense management.", tags: ["Cybersecurity"], ceo: "Sundar Iyer", linkedin: "https://www.linkedin.com/in/sundariyer/", website: "https://rigor.ai/", filter: ["Security"] },
+  { name: "MultiSet", logo: "https://www.multiset.ai/assets/multiset-logo.png", desc: "Robust Visual Positioning Systems for precise, reliable, multi-level environments.", tags: ["VPS", "AR/VR"], ceo: "Nikhil Sawlani", linkedin: "https://www.linkedin.com/in/niksawlani/", website: "https://www.multiset.ai/", filter: ["AI"] },
   { name: "VotersAI", logo: "https://static.wixstatic.com/media/23b958_0cce82a4b76f4c3ebfdc0c92499ea725~mv2.jpg", desc: "All-in-one campaign management platform for political candidates.", tags: ["Political Campaign", "GovTech"], ceo: "Chandra Wagh", linkedin: "https://www.linkedin.com/in/chandra-wagh/", website: "https://votersai.com/", filter: ["Other"] },
-  { name: "Blink AI", logo: "https://static.wixstatic.com/media/23b958_1736276823709", desc: "Real-time fraud prevention and compliance, driven by GenAI and machine learning.", tags: ["Fraud Prevention", "FinTech"], ceo: "Amit Gupta", linkedin: "https://www.linkedin.com/in/amit-gupta-3453298/", website: "https://blinkaipayments.com/", filter: ["FinTech", "Security"] },
-  { name: "Piersight", logo: "", desc: "Persistent maritime surveillance at global scale using SAR satellites.", tags: ["Satellite Surveillance", "SpaceTech"], ceo: "Gaurav Seth", linkedin: "https://www.linkedin.com/in/gauravseth93/", website: "https://piersight.space/", filter: ["Space"] },
-  { name: "Lightberry", logo: "", desc: "Makes any robot emotionally intelligent — they can see, listen and speak.", tags: ["AI", "Robotics"], ceo: "Ali Attar", linkedin: "https://www.linkedin.com/in/attarali/", website: "https://lightberry.com/", filter: ["AI"] },
+  { name: "Blink AI", logo: "https://i.ibb.co/r2g7WKn1/PFP-Mesa-de-trabajo-1-copy.jpg", desc: "Real-time fraud prevention and compliance, driven by GenAI and machine learning.", tags: ["Fraud Prevention", "FinTech"], ceo: "Amit Gupta", linkedin: "https://www.linkedin.com/in/amit-gupta-3453298/", website: "https://www.bliinkai.com/", filter: ["FinTech", "Security"] },
+  { name: "Piersight", logo: "https://framerusercontent.com/assets/binyHv5AGJXSnOCgxH5gJJ9uV4.png", desc: "Persistent maritime surveillance at global scale using SAR satellites.", tags: ["Satellite Surveillance", "SpaceTech"], ceo: "Gaurav Seth", linkedin: "https://www.linkedin.com/in/gauravseth93/", website: "https://piersight.space/", filter: ["Space"] },
+  { name: "Lightberry", logo: "./lightberry-logo.jpg", desc: "Makes any robot emotionally intelligent — they can see, listen and speak.", tags: ["AI", "Robotics"], ceo: "Ali Attar", linkedin: "https://www.linkedin.com/in/attarali/", website: "https://lightberry.com/", filter: ["AI"] },
 ];
 
 // ── Render cards ──────────────────────────────────────────
