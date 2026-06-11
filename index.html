@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivesha Ventures — Seed-Stage VC</title>
+  <meta name="description" content="Nivesha Ventures backs bold founders building the future of technology. Seed-stage VC with 43+ portfolio companies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Tokens ───────────────────────────────────────────── */
+    :root {
+      --navy:    #0B1E3E;
+      --navy-2:  #0f2750;
+      --blue:    #1a56db;
+      --blue-lt: #e8f0fe;
+      --text:    #1a1a2e;
+      --muted:   #6b7280;
+      --border:  #e5e7eb;
+      --white:   #ffffff;
+      --off:     #f8f9fc;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(11,30,62,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      color: #fff; font-weight: 700; font-size: 17px; letter-spacing: -0.3px;
+    }
+    .nav-logo .logo-mark {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #1a56db, #60a5fa);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo .logo-mark svg { width: 18px; height: 18px; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      font-size: 13.5px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: #1a56db;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #1648c0 !important; color: #fff !important; }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 100px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(26,86,219,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Subtle grid lines */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,86,219,0.2);
+      border: 1px solid rgba(26,86,219,0.4);
+      color: #93c5fd;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px;
+      background: #60a5fa; border-radius: 50%;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 18px; line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1a56db;
+      color: #fff;
+      font-weight: 600; font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #1648c0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,86,219,0.4); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-weight: 500; font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+    /* Stats bar */
+    .hero-stats {
+      display: flex; gap: 48px; flex-wrap: wrap;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat-num {
+      font-size: 36px; font-weight: 800; color: #fff; line-height: 1;
+      margin-bottom: 4px; letter-spacing: -1px;
+    }
+    .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; }
+
+    /* ── Section shells ───────────────────────────────────── */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700; color: var(--text);
+      line-height: 1.15; letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 560px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── About strip ──────────────────────────────────────── */
+    .about { background: var(--off); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .about-text p {
+      font-size: 16px; color: #374151; line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-pillars {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .pillar {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .pillar-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--blue-lt); color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .pillar-title { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+    .pillar-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    /* ── Philosophy ───────────────────────────────────────── */
+    .philosophy { background: #fff; }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .phil-card {
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .phil-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .phil-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--blue); opacity: 0.6; margin-bottom: 16px;
+    }
+    .phil-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .phil-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Portfolio ────────────────────────────────────────── */
+    .portfolio { background: var(--navy); padding: 96px 24px; }
+    .portfolio .section-title { color: #fff; }
+    .portfolio .section-sub { color: rgba(255,255,255,0.55); }
+    .portfolio .section-eyebrow { color: #93c5fd; }
+
+    /* Filter tabs */
+    .portfolio-filters {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      font-size: 12.5px; font-weight: 500;
+      padding: 7px 16px; border-radius: 100px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #1a56db;
+      border-color: #1a56db;
+      color: #fff;
+    }
+
+    /* Flip card grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ── The Flip Card ─────────────────────────────────────
+       Signature element: smooth 3D perspective flip on hover/touch.
+       Front: logo image. Back: description + tags + CEO + links.
+    ───────────────────────────────────────────────────────── */
+    .flip-wrap {
+      height: 220px;
+      perspective: 900px;
+      cursor: pointer;
+    }
+    .flip-wrap.hidden { display: none; }
+    .flip-inner {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flip-wrap:hover .flip-inner,
+    .flip-wrap.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute; inset: 0;
+      border-radius: 14px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+    /* Front */
+    .flip-front {
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .flip-front img {
+      max-width: 100%; max-height: 100px;
+      object-fit: contain;
+    }
+    .flip-front .logo-fallback {
+      font-size: 20px; font-weight: 800;
+      color: var(--navy); letter-spacing: -0.5px;
+      text-align: center;
+    }
+    /* Back */
+    .flip-back {
+      background: linear-gradient(135deg, #1a3a6e 0%, #0f2750 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      transform: rotateY(180deg);
+      padding: 20px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .flip-back-desc {
+      font-size: 12px; color: rgba(255,255,255,0.85);
+      line-height: 1.55; flex: 1;
+    }
+    .flip-tags {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      margin: 10px 0;
+    }
+    .flip-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 3px 8px; border-radius: 100px;
+      background: rgba(26,86,219,0.35);
+      border: 1px solid rgba(96,165,250,0.3);
+      color: #93c5fd;
+    }
+    .flip-ceo {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .flip-ceo-info { font-size: 11.5px; color: rgba(255,255,255,0.55); }
+    .flip-ceo-name { font-size: 12.5px; font-weight: 600; color: #fff; }
+    .flip-links { display: flex; gap: 8px; }
+    .flip-link {
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      transition: background 0.2s;
+      font-size: 11px;
+    }
+    .flip-link:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .flip-link svg { width: 12px; height: 12px; }
+
+    /* ── Pitch Us ─────────────────────────────────────────── */
+    .pitchus { background: var(--off); }
+    .pitch-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 80px; align-items: start;
+    }
+    .pitch-left h2 { margin-bottom: 16px; }
+    .pitch-left p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .pitch-checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pitch-checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #374151;
+    }
+    .pitch-checklist li::before {
+      content: '✓';
+      color: var(--blue); font-weight: 700;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .pitch-form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-field label { font-size: 12px; font-weight: 600; color: #374151; }
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      font-size: 13.5px; font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #fff;
+    }
+    .form-field input:focus, .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26,86,219,0.1);
+    }
+    .form-field textarea { resize: vertical; min-height: 80px; }
+    .form-submit {
+      width: 100%; margin-top: 8px;
+      padding: 14px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 15px; font-weight: 600;
+      border: none; border-radius: 10px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--navy-2); }
+    .form-note { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 10px; }
+    .form-success {
+      display: none;
+      padding: 16px; border-radius: 10px;
+      background: #ecfdf5; border: 1px solid #a7f3d0;
+      color: #065f46; font-size: 14px; font-weight: 500;
+      text-align: center; margin-top: 12px;
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 56px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 40px; flex-wrap: wrap;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand { max-width: 280px; }
+    .footer-brand .logo { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .footer-brand p { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+    .footer-links h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.35); }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+    }
+    .social-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    .social-btn svg { width: 15px; height: 15px; }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+      .philosophy-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .pitch-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+      .flip-wrap { height: 200px; }
+    }
+
+    /* ── Scroll animations ────────────────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><path d="M9 2L2 6v6l7 4 7-4V6L9 2z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      Nivesha Ventures
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pitchus" class="nav-cta">Pitch Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Seed-Stage Venture Capital</div>
+    <h1>Backing bold founders<br>building <em>tomorrow</em></h1>
+    <p class="hero-sub">
+      We partner with visionary founders at the earliest stages — bringing capital, connections, and operational know-how to turn breakthrough ideas into lasting impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#pitchus" class="btn-primary">
+        Pitch Us
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#portfolio" class="btn-ghost">See our portfolio</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">43+</div>
+        <div class="hero-stat-label">Portfolio Companies</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Seed</div>
+        <div class="hero-stat-label">Stage Focus</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Funds Raised</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">12+</div>
+        <div class="hero-stat-label">Sectors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ─────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <div class="section-eyebrow">Who We Are</div>
+        <h2 class="section-title">Operators who back operators</h2>
+        <p>Nivesha Ventures is a seed-stage VC backed by three industry veterans with over 30 years of combined experience building, scaling, and leading technology ventures across engineering, IT, and emerging technologies.</p>
+        <p>We don't just write checks — we partner early, move fast, and bring hands-on support to help startups scale. Our network spans enterprise tech, deep tech, and the full arc from concept to market disruption.</p>
+      </div>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.4l-4.8 2.5.9-5.4L2.2 7.7l5.4-.8L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pillar-title">Founder-First</div>
+          <div class="pillar-desc">We lead with conviction, not committees. Fast decisions, honest feedback.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pillar-title">Fast Decisions</div>
+          <div class="pillar-desc">First meeting to term sheet in days, not months. We respect your time.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M3 17l4-8 4 4 3-6 3 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="pillar-title">Deep Network</div>
+          <div class="pillar-desc">Enterprise, channel, and talent connections across North America and Asia.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><path d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 4v4l3 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pillar-title">Long-Term Partners</div>
+          <div class="pillar-desc">We stay engaged well past the initial check. Your journey is our journey.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Philosophy ─────────────────────────────────────────── -->
+<section class="philosophy" id="philosophy">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-eyebrow">Investment Philosophy</div>
+      <h2 class="section-title">How we think about investing</h2>
+      <p class="section-sub">Eight principles that guide every check we write.</p>
+    </div>
+    <div class="philosophy-grid">
+      <div class="phil-card fade-in">
+        <div class="phil-num">01</div>
+        <h3>Visionary Partnership</h3>
+        <p>We forge strong partnerships with founders passionate about disrupting industries and solving real-world problems with innovative tech solutions.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">02</div>
+        <h3>Value Beyond Capital</h3>
+        <p>Strategic guidance, mentorship, and access to our network of experts and resources — we extend far beyond the check.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">03</div>
+        <h3>Early-Stage Focus</h3>
+        <p>The seed stage is where we live. We identify and support promising startups in their nascent stages when the impact of our support is greatest.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">04</div>
+        <h3>Prudent Risk-Taking</h3>
+        <p>We evaluate opportunities meticulously while nurturing an environment conducive to innovation, calculated risk, and growth.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">05</div>
+        <h3>Long-Term Vision</h3>
+        <p>Our commitment goes beyond initial funding. We foster long-term relationships from concept to market disruption and beyond.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">06</div>
+        <h3>Continuous Learning</h3>
+        <p>We continuously learn and adapt, staying abreast of emerging technologies and market trends to better serve our portfolio.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">07</div>
+        <h3>Diverse Innovation</h3>
+        <p>We embrace diversity in ideas, teams, and markets — seeking startups that address various sectors with novel technological approaches.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-num">08</div>
+        <h3>Ethical Practices</h3>
+        <p>Integrity and trust are the cornerstones of our relationships with founders, investors, and stakeholders. We uphold the highest standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Portfolio ──────────────────────────────────────────── -->
+<section class="portfolio" id="portfolio">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <div class="section-eyebrow">Portfolio Companies</div>
+      <h2 class="section-title" style="color:#fff">43+ companies and counting</h2>
+      <p class="section-sub">Hover a card to learn more about each company.</p>
+    </div>
+
+    <div class="portfolio-filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="AI">AI / ML</button>
+      <button class="filter-btn" data-filter="FinTech">FinTech</button>
+      <button class="filter-btn" data-filter="Healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="Space">Space</button>
+      <button class="filter-btn" data-filter="Climate">Climate</button>
+      <button class="filter-btn" data-filter="Logistics">Logistics</button>
+      <button class="filter-btn" data-filter="Security">Security</button>
+      <button class="filter-btn" data-filter="Other">Other</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Pitch Us ───────────────────────────────────────────── -->
+<section class="pitchus" id="pitchus">
+  <div class="section-inner">
+    <div class="pitch-grid">
+      <div class="pitch-left fade-in">
+        <div class="section-eyebrow">Pitch Us</div>
+        <h2 class="section-title">Building something bold?</h2>
+        <p>We back seed-stage founders solving real problems with technology. If you're pre-seed or seed and looking for a partner who moves fast and adds value beyond capital, we want to hear from you.</p>
+        <ul class="pitch-checklist">
+          <li>Pre-seed to Seed stage investments</li>
+          <li>Technology-first companies</li>
+          <li>Founders with strong domain expertise</li>
+          <li>Global reach, North America &amp; beyond</li>
+          <li>Fast decisions — typically within 2 weeks</li>
+        </ul>
+      </div>
+      <div class="pitch-form fade-in" id="pitchForm">
+        <div style="font-size:18px;font-weight:700;margin-bottom:4px;">Send us your pitch</div>
+        <div style="font-size:13px;color:#6b7280;margin-bottom:24px;">We read every submission.</div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Full Name *</label>
+            <input type="text" id="f-name" placeholder="Jane Smith" />
+          </div>
+          <div class="form-field">
+            <label>Email *</label>
+            <input type="email" id="f-email" placeholder="jane@company.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Contact Number</label>
+            <input type="tel" id="f-phone" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="form-field">
+            <label>Company Website</label>
+            <input type="url" id="f-website" placeholder="https://yourcompany.com" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label>Brief Description *</label>
+            <textarea id="f-desc" placeholder="What does your company do? What problem are you solving?"></textarea>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label>Vision</label>
+            <textarea id="f-vision" placeholder="Where do you see this in 5 years?" style="min-height:64px;"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Pitch Deck Link</label>
+            <input type="url" id="f-deck" placeholder="https://deck.link" />
+          </div>
+          <div class="form-field">
+            <label>Founder Video Link</label>
+            <input type="url" id="f-video" placeholder="https://loom.com/..." />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Founder LinkedIn</label>
+            <input type="url" id="f-linkedin" placeholder="https://linkedin.com/in/..." />
+          </div>
+          <div class="form-field">
+            <label>Date Founded</label>
+            <input type="text" id="f-founded" placeholder="MM/YYYY" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Capital Raised to Date</label>
+            <input type="text" id="f-raised" placeholder="e.g. $250K" />
+          </div>
+          <div class="form-field">
+            <label>Capital Seeking</label>
+            <input type="text" id="f-seeking" placeholder="e.g. $1M" />
+          </div>
+        </div>
+
+        <button class="form-submit" onclick="submitForm()">Submit Pitch →</button>
+        <div class="form-note">By submitting, you agree to our privacy policy. We'll respond within 5 business days.</div>
+        <div class="form-success" id="formSuccess">✓ Thank you! We've received your pitch and will be in touch soon.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Nivesha Ventures</div>
+        <p>Seed-stage venture capital backing bold founders building the future of technology.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#philosophy">Investment Philosophy</a></li>
+          <li><a href="#portfolio">Portfolio Companies</a></li>
+          <li><a href="#pitchus">Pitch Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:team@niveshaventures.com">team@niveshaventures.com</a></li>
+          <li><a href="https://www.linkedin.com/company/niveshaventures" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Nivesha Ventures. All rights reserved.</div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/niveshaventures" target="_blank" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://twitter.com/niveshaventures" target="_blank" class="social-btn" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Portfolio data ──────────────────────────────────────────
+const COMPANIES = [
+  { name: "Swirepay", logo: "https://static.wixstatic.com/media/23b958_45b90e3280f946bdb98a95c5366bf866~mv2.jpg", desc: "AI-powered payments orchestration & reconciliation platform for businesses.", tags: ["FinTech", "Financial Services"], ceo: "Aditya Murli", linkedin: "https://www.linkedin.com/in/adithya-murali/", website: "https://www.swirepay.com/", filter: ["FinTech"] },
+  { name: "Phonely", logo: "https://static.wixstatic.com/media/23b958_5aab4273b49c46e89d90e2c5e236e27f~mv2.jpg", desc: "AI-powered customer support and voice automation.", tags: ["Voice AI", "Conversational AI"], ceo: "Will Bodewes", linkedin: "https://www.linkedin.com/in/william-bodewes/", website: "https://www.phonely.ai/", filter: ["AI"] },
+  { name: "Zime.ai", logo: "https://static.wixstatic.com/media/23b958_76618c01e8704db7900138ddba58e7bc~mv2.jpg", desc: "Behavioral Science and AI-driven sales coaching and sales enablement.", tags: ["AI", "Sales Enablement"], ceo: "Sanchit Garg", linkedin: "https://www.linkedin.com/in/sanchitg/", website: "https://zime.ai/", filter: ["AI"] },
+  { name: "Wink", logo: "https://static.wixstatic.com/media/23b958_16aa570cd1bf4b65ab0350fc72a5b64c~mv2.jpg", desc: "Biometric authentication, AI-driven fraud prevention, and payment orchestration.", tags: ["FinTech", "Identity Security"], ceo: "Deepak Jain", linkedin: "https://www.linkedin.com/in/deejai/", website: "https://www.wink.cloud/", filter: ["FinTech", "Security"] },
+  { name: "XCaliber Health", logo: "https://static.wixstatic.com/media/23b958_0bd28347fb3e4800beb9c189da6acf6d~mv2.jpg", desc: "AI platform for smarter healthcare data integration and management.", tags: ["Healthcare", "Health Data"], ceo: "Prakash Khot", linkedin: "https://www.linkedin.com/in/prkhot/", website: "https://www.xcaliberhealth.ai/", filter: ["Healthcare"] },
+  { name: "Catalyx", logo: "https://static.wixstatic.com/media/23b958_d53635c857f148ceb815947a283cad64~mv2.jpg", desc: "Enabling in-space R&D and manufacturing with autonomous labs and re-entry capsules.", tags: ["New Space", "Space Infrastructure"], ceo: "Rifath Shaarook", linkedin: "https://www.linkedin.com/in/riftron/", website: "https://www.catalyx.space/", filter: ["Space"] },
+  { name: "Bruviti", logo: "https://static.wixstatic.com/media/23b958_f8c56136f56b4ff89625c41cffeec47f~mv2.jpg", desc: "AI & ML-powered tools for diagnostics, triage, parts prediction, and repair guidance.", tags: ["Enterprise AI", "Service Resolution"], ceo: "Andy Chinmulgund", linkedin: "https://www.linkedin.com/in/andy-chinmulgund-822781/", website: "https://www.bruviti.com/", filter: ["AI"] },
+  { name: "Careflick", logo: "https://static.wixstatic.com/media/23b958_bc49a87cb4f749f883e1a09467b9243d~mv2.jpg", desc: "AI for active aging. AI co-pilot for personalized senior care.", tags: ["HealthTech", "Senior Care"], ceo: "Abhishek Mohanty", linkedin: "https://www.linkedin.com/in/abhishekmohanty91/", website: "https://www.careflick.com/", filter: ["Healthcare", "AI"] },
+  { name: "Istakapaza", logo: "https://static.wixstatic.com/media/23b958_242244c4270b42daa61345e8f210c38a~mv2.jpg", desc: "Blockchain-based platform for enabling ecosystems and smart commerce.", tags: ["PropTech", "MortgageTech"], ceo: "Alok Sinha", linkedin: "https://www.linkedin.com/in/sinhaalokk/", website: "https://www.istakapaza.us/", filter: ["Other"] },
+  { name: "AECInspire", logo: "https://static.wixstatic.com/media/23b958_f2583a2734a54e57964bbcbcdfb0b879~mv2.jpg", desc: "AI-powered material procurement to cut electrical waste and speed up projects.", tags: ["Construction Tech", "IndustrialTech"], ceo: "Ashfaq Rasheed", linkedin: "https://www.linkedin.com/in/ashfaqrasheed/", website: "https://aecinspire.com/", filter: ["Other"] },
+  { name: "Enedym", logo: "https://static.wixstatic.com/media/23b958_51d10814f33e41dfb3a7666d1c0c91aa~mv2.jpg", desc: "A cleantech startup commercializing rare-earth-free electric motors.", tags: ["CleanTech", "Renewables"], ceo: "Ali Emadi", linkedin: "https://www.linkedin.com/in/ali-emadi/", website: "https://enedym.com/", filter: ["Climate"] },
+  { name: "Epsilla", logo: "https://static.wixstatic.com/media/23b958_4edc70802f1b4b53bd278780af9847c9~mv2.jpg", desc: "A turnkey AI Agent-as-a-Service platform that lets firms rapidly build AI agents.", tags: ["LLM Infra", "Generative AI"], ceo: "Richard Song", linkedin: "https://www.linkedin.com/in/renchu-richard-song-a4099247/", website: "https://www.epsilla.com/", filter: ["AI"] },
+  { name: "FirstShift", logo: "https://static.wixstatic.com/media/23b958_f095c6caf1e74fe0b9074250e8beed0b~mv2.jpg", desc: "AI/ML SaaS that transforms supply chains with fast, scalable, and accurate demand.", tags: ["Supply Chain", "AI/ML"], ceo: "Hari Menon", linkedin: "https://www.linkedin.com/in/hjmenon/", website: "https://www.firstshift.ai/", filter: ["Logistics", "AI"] },
+  { name: "CoverSelf", logo: "https://static.wixstatic.com/media/23b958_a927d26d4bec47ee8c9a665a3db08058~mv2.jpg", desc: "AI-driven platform that helps health insurers reduce costly claims errors.", tags: ["HealthTech", "InsurTech"], ceo: "Rajasekhar Maddireddy", linkedin: "https://www.linkedin.com/in/rajasekhar-maddireddy/", website: "https://www.coverself.com/", filter: ["Healthcare"] },
+  { name: "Explorex", logo: "https://static.wixstatic.com/media/23b958_64333986cfb04d27ba57ad302b14559a~mv2.jpg", desc: "Powers restaurants with a unified operating system.", tags: ["Restaurant", "Hospitality"], ceo: "Mainak Sarkar", linkedin: "https://www.linkedin.com/in/mainak-explorex/", website: "https://explorex.co/", filter: ["Other"] },
+  { name: "MobileForce", logo: "https://static.wixstatic.com/media/23b958_28f6a2f703984ee29eb1dc7f4b50e3b7~mv2.jpg", desc: "A no-code RevOps platform to streamline quoting, service, and revenue growth.", tags: ["Revenue Operations", "B2B SaaS"], ceo: "Jagdish Bandhole", linkedin: "https://www.linkedin.com/in/jagsband/", website: "https://mobileforcesoftware.com/", filter: ["Other"] },
+  { name: "Packsmith", logo: "https://static.wixstatic.com/media/23b958_a005f9568e1846e4af0065e8d82a70a6~mv2.jpg", desc: "AI-powered logistics OS that helps brands cut costs and scale fulfillment.", tags: ["E-commerce", "Fulfillment"], ceo: "Ben Wunderman", linkedin: "https://www.linkedin.com/in/benwunderman/", website: "https://packsmith.io/", filter: ["Logistics"] },
+  { name: "Pipeshift", logo: "https://static.wixstatic.com/media/23b958_2a6d49bb25b3477693435572247808cb~mv2.jpg", desc: "Helps enterprises deploy and scale open-source LLMs efficiently.", tags: ["MLOps", "LLM Infrastructure"], ceo: "Arco C", linkedin: "https://www.linkedin.com/in/arkoc/", website: "https://pipeshift.com/", filter: ["AI"] },
+  { name: "Distacart", logo: "https://static.wixstatic.com/media/23b958_b5964cd5b3c5497eb1b5edfc9abadeeb~mv2.jpg", desc: "A global e-commerce platform connecting buyers from outside of India.", tags: ["Cross-border", "E-commerce"], ceo: "Kiran K", linkedin: "https://www.linkedin.com/in/kirankotla/", website: "https://www.distacart.com/en-in", filter: ["Other"] },
+  { name: "BrowserOS", logo: "https://static.wixstatic.com/media/23b958_2ce990fce847464bb4ee7d42b2696745~mv2.jpg", desc: "A privacy-first, open-source browser that automates browsing workflows.", tags: ["Agentic Browser", "Web Automation"], ceo: "Nithin Sonti", linkedin: "https://www.linkedin.com/in/nikhil-sv/", website: "https://www.browseros.com/", filter: ["AI"] },
+  { name: "Syntra", logo: "https://static.wixstatic.com/media/23b958_6f82445ad12c4b4281aae9484c05037c~mv2.jpg", desc: "AI platform that automates medical audits to recover revenue.", tags: ["Healthcare", "Digital Health"], ceo: "Ayush Jain", linkedin: "https://www.linkedin.com/in/ayushaadijain/", website: "https://www.syntra.com/", filter: ["Healthcare", "AI"] },
+  { name: "Bayesline", logo: "https://static.wixstatic.com/media/23b958_5dfedd80f17e4d2eb1cea4f23710c2a6~mv2.jpg", desc: "Highly customizable and blazing fast analytics for asset managers.", tags: ["FinTech", "Asset Management"], ceo: "Sebastian Janisch", linkedin: "https://www.linkedin.com/in/sebastianjanisch/", website: "https://bayesline.com/", filter: ["FinTech"] },
+  { name: "Silurian", logo: "https://static.wixstatic.com/media/23b958_45759e0603174767964707c50bc2def1~mv2.jpg", desc: "Brings the power of foundation models to weather and climate.", tags: ["ClimateTech", "Energy & Utilities"], ceo: "Jayesh K. Gupta", linkedin: "https://www.linkedin.com/in/jayeshkg/", website: "https://silurian.ai/", filter: ["Climate", "AI"] },
+  { name: "DeviceThread", logo: "https://static.wixstatic.com/media/23b958_4981009d1fbe4f7ba361e009c17ea4cd~mv2.jpg", desc: "Powers the smart property revolution with an AI-native IoT platform for hospitality.", tags: ["Hospitality", "IoT"], ceo: "Swamy Viswanathan", linkedin: "https://www.linkedin.com/in/swamyviswanathan/", website: "https://www.devicethread.com/", filter: ["Other"] },
+  { name: "HEN Technologies", logo: "https://static.wixstatic.com/media/23b958_0dba6d7ce96a460ab617a0169fa7910a~mv2.jpg", desc: "Building intelligent platform of firefighting using specialized hardware.", tags: ["Firefighting", "Emergency Services"], ceo: "Sunny Sethi", linkedin: "https://www.linkedin.com/in/sunny-sethi-hen/", website: "https://www.hentechnologies.com/", filter: ["Other"] },
+  { name: "Hosted.ai", logo: "https://static.wixstatic.com/media/23b958_26b4768d3a9e41a78ee5fb36bde3c7c4~mv2.jpg", desc: "AI cloud platform that enables service providers to offer GPU-as-a-service.", tags: ["GPUaaS", "AI Infrastructure"], ceo: "Ditlev Bredahl", linkedin: "https://www.linkedin.com/in/ditlev/", website: "https://hosted.ai/", filter: ["AI"] },
+  { name: "Codefour", logo: "https://static.wixstatic.com/media/23b958_a0c8267e39e3492580f9db83e7f097df~mv2.jpg", desc: "Turns hours of bodycam footage into actionable reports in minutes.", tags: ["Law Enforcement", "AI/ML"], ceo: "George Cheng", linkedin: "https://www.linkedin.com/in/cheng-george/", website: "https://www.codefour.us/", filter: ["AI"] },
+  { name: "Cactus", logo: "https://static.wixstatic.com/media/23b958_8bf7981ceb634a3183391be7dacbfeae~mv2.jpg", desc: "AI copilot that automates admin, calls, and bookings for solopreneurs.", tags: ["AI Business", "Small Business"], ceo: "Ajith Govind", linkedin: "http://linkedin.com/in/ajith-govind/", website: "https://oncactus.com/", filter: ["AI"] },
+  { name: "Relixir", logo: "https://static.wixstatic.com/media/23b958_2a4acc59c293438989b7e43e230d2504~mv2.jpg", desc: "AI GEO platform that maps, monitors, and amplifies brand visibility.", tags: ["GEO", "MarTech"], ceo: "Sean Dorje", linkedin: "https://www.linkedin.com/in/seandorje/", website: "https://relixir.ai/", filter: ["AI"] },
+  { name: "GetASAP", logo: "https://static.wixstatic.com/media/23b958_b9b957469f574f2385c6fde0e49218e4~mv2.jpg", desc: "A demand intelligence platform and tech-driven B2B distributor to small retailers.", tags: ["B2B Logistics", "Fulfillment"], ceo: "Raghav Arora", linkedin: "https://www.linkedin.com/in/raghav-arora-516b1826b/", website: "https://getasap.asia/", filter: ["Logistics"] },
+  { name: "Synexis", logo: "https://static.wixstatic.com/media/23b958_3a7b04376fd9467297799fbe2606659a~mv2.jpg", desc: "AI-native decision platform that shortens private market deal cycles.", tags: ["VC Deal Flow", "VC-startup tech"], ceo: "Pavel Vinitsky, PhD", linkedin: "https://www.linkedin.com/in/pavelvinitsky/", website: "https://synexis.io/", filter: ["AI"] },
+  { name: "Lightbeam", logo: "https://static.wixstatic.com/media/23b958_3b8b3e9938404d219b4607650cd58629~mv2.jpg", desc: "A data security & privacy platform using AI to discover & protect sensitive data.", tags: ["Cybersecurity", "AI Governance"], ceo: "Himanshu Shukla", linkedin: "https://www.linkedin.com/in/himanshushukla-us/", website: "https://www.lightbeam.ai/", filter: ["Security", "AI"] },
+  { name: "VoiceBox", logo: "https://static.wixstatic.com/media/23b958_ea104d30ce674712b87813e811217ee2~mv2.png", desc: "Capture voice feedback at any point in the customer journey and get deep insights instantly.", tags: ["Voice Analytics", "Feedback Intelligence"], ceo: "Karan M Gupta", linkedin: "https://www.linkedin.com/in/karanmg/", website: "https://vbx.ai/", filter: ["AI"] },
+  { name: "Rigor.ai", logo: "https://static.wixstatic.com/media/23b958_7c2f993a60dc4364951d582de9b4d157~mv2.jpg", desc: "A cybersecurity company pioneering preemptive, continuous, and verifiable cyber-defense management.", tags: ["Cybersecurity"], ceo: "Sundar Iyer", linkedin: "https://www.linkedin.com/in/sundariyer/", website: "https://rigor.ai/", filter: ["Security"] },
+  { name: "MultiSet", logo: "https://static.wixstatic.com/media/23b958_756d5755ac1345edb83699fa45703a95~mv2.jpg", desc: "Robust Visual Positioning Systems for precise, reliable, multi-level environments.", tags: ["VPS", "AR/VR"], ceo: "Nikhil Sawlani", linkedin: "https://www.linkedin.com/in/niksawlani/", website: "https://www.multiset.ai/", filter: ["AI"] },
+  { name: "VotersAI", logo: "https://static.wixstatic.com/media/23b958_0cce82a4b76f4c3ebfdc0c92499ea725~mv2.jpg", desc: "All-in-one campaign management platform for political candidates.", tags: ["Political Campaign", "GovTech"], ceo: "Chandra Wagh", linkedin: "https://www.linkedin.com/in/chandra-wagh/", website: "https://votersai.com/", filter: ["Other"] },
+  { name: "Blink AI", logo: "https://static.wixstatic.com/media/23b958_1736276823709", desc: "Real-time fraud prevention and compliance, driven by GenAI and machine learning.", tags: ["Fraud Prevention", "FinTech"], ceo: "Amit Gupta", linkedin: "https://www.linkedin.com/in/amit-gupta-3453298/", website: "https://blinkaipayments.com/", filter: ["FinTech", "Security"] },
+  { name: "Piersight", logo: "", desc: "Persistent maritime surveillance at global scale using SAR satellites.", tags: ["Satellite Surveillance", "SpaceTech"], ceo: "Gaurav Seth", linkedin: "https://www.linkedin.com/in/gauravseth93/", website: "https://piersight.space/", filter: ["Space"] },
+  { name: "Lightberry", logo: "", desc: "Makes any robot emotionally intelligent — they can see, listen and speak.", tags: ["AI", "Robotics"], ceo: "Ali Attar", linkedin: "https://www.linkedin.com/in/attarali/", website: "https://lightberry.com/", filter: ["AI"] },
+];
+
+// ── Render cards ──────────────────────────────────────────
+function renderCards(filter) {
+  const grid = document.getElementById('portfolioGrid');
+  grid.innerHTML = '';
+  COMPANIES.forEach(co => {
+    const show = filter === 'all' || co.filter.some(f => f.toLowerCase().includes(filter.toLowerCase()) || filter.toLowerCase().includes(f.toLowerCase()));
+    const wrap = document.createElement('div');
+    wrap.className = 'flip-wrap' + (show ? '' : ' hidden');
+    wrap.setAttribute('data-filters', JSON.stringify(co.filter));
+
+    const logoHtml = co.logo
+      ? `<img src="${co.logo}" alt="${co.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="logo-fallback" style="display:none">${co.name}</div>`
+      : `<div class="logo-fallback">${co.name}</div>`;
+
+    const tagsHtml = co.tags.map(t => `<span class="flip-tag">${t}</span>`).join('');
+
+    wrap.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front">${logoHtml}</div>
+        <div class="flip-back">
+          <div class="flip-back-desc">${co.desc}</div>
+          <div class="flip-tags">${tagsHtml}</div>
+          <div class="flip-ceo">
+            <div>
+              <div class="flip-ceo-info">CEO</div>
+              <div class="flip-ceo-name">${co.ceo}</div>
+            </div>
+            <div class="flip-links">
+              <a href="${co.linkedin}" target="_blank" class="flip-link" title="LinkedIn" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="${co.website}" target="_blank" class="flip-link" title="Website" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    // Touch / click toggle for mobile
+    wrap.addEventListener('click', () => wrap.classList.toggle('flipped'));
+    grid.appendChild(wrap);
+  });
+}
+
+// Filter buttons
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  renderCards(f);
+});
+
+renderCards('all');
+
+// ── Form submit ───────────────────────────────────────────
+function submitForm() {
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const desc    = document.getElementById('f-desc').value.trim();
+  if (!name || !email || !desc) {
+    alert('Please fill in at least your name, email, and company description.');
+    return;
+  }
+  // In production: replace with fetch() to your API / Resend / Formspree endpoint
+  document.getElementById('formSuccess').style.display = 'block';
+  document.querySelector('.form-submit').style.display = 'none';
+}
+
+// ── Scroll fade-ins ───────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
