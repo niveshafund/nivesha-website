@@ -902,7 +902,7 @@ document.getElementById('filters').addEventListener('click', e => {
 renderCards('all');
 
 // ── Form submit ───────────────────────────────────────────
-function submitForm() {
+async function submitForm() {
   const name    = document.getElementById('f-name').value.trim();
   const email   = document.getElementById('f-email').value.trim();
   const desc    = document.getElementById('f-desc').value.trim();
@@ -910,9 +910,44 @@ function submitForm() {
     alert('Please fill in at least your name, email, and company description.');
     return;
   }
-  // In production: replace with fetch() to your API / Resend / Formspree endpoint
-  document.getElementById('formSuccess').style.display = 'block';
-  document.querySelector('.form-submit').style.display = 'none';
+
+  const data = {
+    name:           name,
+    email:          email,
+    phone:          document.getElementById('f-phone').value.trim(),
+    website:        document.getElementById('f-website').value.trim(),
+    description:    desc,
+    vision:         document.getElementById('f-vision').value.trim(),
+    deck_link:      document.getElementById('f-deck').value.trim(),
+    video_link:     document.getElementById('f-video').value.trim(),
+    founder_linkedin: document.getElementById('f-linkedin').value.trim(),
+    date_founded:   document.getElementById('f-founded').value.trim(),
+    capital_raised: document.getElementById('f-raised').value.trim(),
+    capital_seeking: document.getElementById('f-seeking').value.trim(),
+    _subject: `New Pitch: ${name}${desc ? ' — ' + desc.slice(0, 60) : ''}`
+  };
+
+  const btn = document.querySelector('.form-submit');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  try {
+    const res = await fetch('https://formspree.io/f/mpqeoqpw', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    alert('Something went wrong submitting your pitch. Please try again or email us directly.');
+    btn.disabled = false;
+    btn.textContent = 'Submit Pitch →';
+  }
 }
 
 // ── Scroll fade-ins ───────────────────────────────────────
