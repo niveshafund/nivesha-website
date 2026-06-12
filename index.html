@@ -303,9 +303,13 @@
       transform-style: preserve-3d;
       transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .flip-wrap:hover .flip-inner,
     .flip-wrap.flipped .flip-inner {
       transform: rotateY(180deg);
+    }
+    @media (hover: hover) {
+      .flip-wrap:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
     }
     .flip-front, .flip-back {
       position: absolute; inset: 0;
@@ -336,6 +340,7 @@
       transform: rotateY(180deg);
       padding: 20px;
       display: flex; flex-direction: column; justify-content: space-between;
+      overflow-y: auto;
     }
     .flip-back-desc {
       font-size: 12px; color: rgba(255,255,255,0.85);
@@ -481,12 +486,12 @@
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: 1fr; }
       .philosophy-grid { grid-template-columns: 1fr; }
       .about-pillars { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-stats { gap: 28px; }
-      .flip-wrap { height: 200px; }
+      .flip-wrap { height: 280px; }
     }
 
     /* ── Scroll animations ────────────────────────────────── */
